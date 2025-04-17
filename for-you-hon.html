@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You Hon 💖</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fef6f9;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    #questionContainer {
+      position: relative;
+      width: 400px;
+      height: 250px;
+      margin: 0 auto;
+      border: 2px dashed #ff85a2;
+      border-radius: 15px;
+      padding-top: 40px;
+      background-color: #fff0f5;
+    }
+
+    h1 {
+      color: #ff4b91;
+    }
+
+    button {
+      position: absolute;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #yesBtn {
+      left: 80px;
+      top: 150px;
+      background-color: #ff66a3;
+      color: white;
+    }
+
+    #noBtn {
+      left: 220px;
+      top: 150px;
+      background-color: #ffc0cb;
+      color: #333;
+    }
+
+    #heartLoader {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ff4b91;
+    }
+
+    #resultContainer {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #d6336c;
+      display: none;
+    }
+
+    #customMessage {
+      margin-top: 15px;
+      font-size: 18px;
+      font-style: italic;
+      color: #d6336c;
+      display: none;
+    }
+
+    img {
+      width: 150px;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Do you love me? 😳</h1>
+
+  <div id="questionContainer">
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 🙅‍♂️</button>
+  </div>
+
+  <div id="heartLoader">ummmaaa?... ❤️</div>
+  <div id="resultContainer">Aww! GOOD BISH! 💕</div>
+  <div id="customMessage">I love you, my inseparable wife. 💞</div>
+  <img id="loveGif" src="https://media.giphy.com/media/3M4NpbLCTxBqU/giphy.gif" alt="Love GIF" />
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const questionContainer = document.getElementById("questionContainer");
+    const heartLoader = document.getElementById("heartLoader");
+    const resultContainer = document.getElementById("resultContainer");
+    const loveGif = document.getElementById("loveGif");
+    const customMessage = document.getElementById("customMessage");
+
+    noBtn.addEventListener("mouseover", () => {
+      const newX = Math.floor(Math.random() * (questionContainer.offsetWidth - noBtn.offsetWidth));
+      const newY = Math.floor(Math.random() * (questionContainer.offsetHeight - noBtn.offsetHeight));
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      heartLoader.style.display = "block";
+      resultContainer.style.display = "none";
+      loveGif.style.display = "none";
+      customMessage.style.display = "none";
+
+      setTimeout(() => {
+        heartLoader.style.display = "none";
+        resultContainer.style.display = "block";
+        loveGif.style.display = "block";
+        customMessage.style.display = "block";
+      }, 350);
+    });
+  </script>
+
+</body>
+</html>
